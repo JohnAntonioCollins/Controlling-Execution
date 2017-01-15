@@ -4,7 +4,7 @@
 public class RandomNumber {
 
     public int RandNumToTen(){
-    return (int) ((Math.random())*10);
+    return (int) (((Math.random())*9)+1);
 
     }
 }

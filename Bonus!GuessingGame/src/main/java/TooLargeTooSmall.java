@@ -34,7 +34,7 @@ public class TooLargeTooSmall {
         int currentCount = 0;
 
 
-        GetUserGuessNumber guessNumber = new GetUserGuessNumber();
+        GetAnNumber thisNumber = new GetAnNumber();
         GuessChecker checkThisGuess = new GuessChecker();
         Responder thisResponse = new Responder();
         CheckerOfUniqueGuess thisGuess = new CheckerOfUniqueGuess();
@@ -43,8 +43,9 @@ public class TooLargeTooSmall {
         //int currentCount = thisCounter.count(c);
 
 
-        //CounterOfAttempts thisCounter = new CounterOfAttempts();
-        //int currentCount = thisCounter.count();
+        CounterOfAttempts thisCounter = new CounterOfAttempts();
+        //int currentCount = thisCounter.count(0);
+        //thisCounter.count(currentCount);
 
         RandomNumber currentSecret = new RandomNumber();
         int secretNumber = currentSecret.RandNumToTen();
@@ -53,22 +54,27 @@ public class TooLargeTooSmall {
 
         //start game loop here
         do {
-            usersGuess = guessNumber.userGuess();
+            usersGuess = thisNumber.makeUsersGuess();
             //System.out.println("code test: userGuess is now: " + usersGuess);
 
-            if(usersGuess > )
+            //if(usersGuess > )
             thisEvaluation = checkThisGuess.isCorrect(usersGuess, secretNumber);
             //System.out.println("code test: guess checker: " + checkThisGuess.isCorrect(usersGuess, secretNumber));
 
-            System.out.println(thisResponse.response(thisEvaluation));
+            boolean isUnique = thisGuess.isUnique(usersGuess, previousGuess);
+
+            if(isUnique) {
+                currentCount = thisCounter.increasesByOne(currentCount);
+
+            System.out.println(thisResponse.respond(thisEvaluation, currentCount));
 
 
-            boolean isRepeat = thisGuess.isUnique(usersGuess, previousGuess);
 
-
-            if(usersGuess != previousGuess){
-                currentCount++;
             }
+            System.out.println("//code test: currentCount now equals: " + currentCount);
+            //if(usersGuess != previousGuess){
+                //currentCount++;
+            //}
             previousGuess = usersGuess;
             //System.out.println("//this is for code testing: int previousGuess now equals " + previousGuess);
             //System.out.println("//this is for code testing: the current attempt count is " + currentCount);

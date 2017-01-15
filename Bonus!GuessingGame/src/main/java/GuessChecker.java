@@ -4,16 +4,14 @@
 public class GuessChecker {
     
     public boolean isCorrect(int guess, int secret) {
-        if(guess > secret){
+        if(guess == secret){
             return true;
 
         }
-        else if(secret < guess){
+        else
             return false;
-        }
-        else if(secret == guess){
 
         };
         
     }
-}
+

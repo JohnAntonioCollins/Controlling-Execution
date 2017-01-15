@@ -4,9 +4,9 @@
 
 
 public class CounterOfAttempts {
-    //int c = 0;
+    //int c = 1;
 
-    public int count(int c){
+    public int increasesByOne(int c){
         c++;
         return c;
     }
